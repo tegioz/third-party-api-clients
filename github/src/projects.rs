@@ -12,21 +12,21 @@ impl Projects {
     }
 
     /**
-     * List organization projects.
-     *
-     * This function performs a `GET` to the `/orgs/{org}/projects` endpoint.
-     *
-     * Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-organization-projects>
-     *
-     * **Parameters:**
-     *
-     * * `org: &str`
-     * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List organization projects.
+    *
+    * This function performs a `GET` to the `/orgs/{org}/projects` endpoint.
+    *
+    * Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-organization-projects>
+    *
+    * **Parameters:**
+    *
+    * * `org: &str`
+    * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_for_org(
         &self,
         org: &str,
@@ -64,16 +64,16 @@ impl Projects {
             .await
     }
     /**
-     * List organization projects.
-     *
-     * This function performs a `GET` to the `/orgs/{org}/projects` endpoint.
-     *
-     * As opposed to `list_for_org`, this function returns all the pages of the request at once.
-     *
-     * Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-organization-projects>
-     */
+    * List organization projects.
+    *
+    * This function performs a `GET` to the `/orgs/{org}/projects` endpoint.
+    *
+    * As opposed to `list_for_org`, this function returns all the pages of the request at once.
+    *
+    * Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-organization-projects>
+    */
     pub async fn list_all_for_org(
         &self,
         org: &str,
@@ -103,18 +103,18 @@ impl Projects {
             .await
     }
     /**
-     * Create an organization project.
-     *
-     * This function performs a `POST` to the `/orgs/{org}/projects` endpoint.
-     *
-     * Creates an organization project board. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#create-an-organization-project>
-     *
-     * **Parameters:**
-     *
-     * * `org: &str`
-     */
+    * Create an organization project.
+    *
+    * This function performs a `POST` to the `/orgs/{org}/projects` endpoint.
+    *
+    * Creates an organization project board. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#create-an-organization-project>
+    *
+    * **Parameters:**
+    *
+    * * `org: &str`
+    */
     pub async fn create_for_org(
         &self,
         org: &str,
@@ -138,18 +138,18 @@ impl Projects {
             .await
     }
     /**
-     * Get a project card.
-     *
-     * This function performs a `GET` to the `/projects/columns/cards/{card_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#get-a-project-card>
-     *
-     * **Parameters:**
-     *
-     * * `card_id: i64` -- card_id parameter.
-     */
+    * Get a project card.
+    *
+    * This function performs a `GET` to the `/projects/columns/cards/{card_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#get-a-project-card>
+    *
+    * **Parameters:**
+    *
+    * * `card_id: i64` -- card_id parameter.
+    */
     pub async fn get_card(&self, card_id: i64) -> ClientResult<crate::types::ProjectCard> {
         let url = self.client.url(
             &format!(
@@ -169,18 +169,18 @@ impl Projects {
             .await
     }
     /**
-     * Delete a project card.
-     *
-     * This function performs a `DELETE` to the `/projects/columns/cards/{card_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project-card>
-     *
-     * **Parameters:**
-     *
-     * * `card_id: i64` -- card_id parameter.
-     */
+    * Delete a project card.
+    *
+    * This function performs a `DELETE` to the `/projects/columns/cards/{card_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project-card>
+    *
+    * **Parameters:**
+    *
+    * * `card_id: i64` -- card_id parameter.
+    */
     pub async fn delete_card(&self, card_id: i64) -> ClientResult<()> {
         let url = self.client.url(
             &format!(
@@ -200,18 +200,18 @@ impl Projects {
             .await
     }
     /**
-     * Update an existing project card.
-     *
-     * This function performs a `PATCH` to the `/projects/columns/cards/{card_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#update-a-project-card>
-     *
-     * **Parameters:**
-     *
-     * * `card_id: i64` -- card_id parameter.
-     */
+    * Update an existing project card.
+    *
+    * This function performs a `PATCH` to the `/projects/columns/cards/{card_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#update-a-project-card>
+    *
+    * **Parameters:**
+    *
+    * * `card_id: i64` -- card_id parameter.
+    */
     pub async fn update_card(
         &self,
         card_id: i64,
@@ -235,18 +235,18 @@ impl Projects {
             .await
     }
     /**
-     * Move a project card.
-     *
-     * This function performs a `POST` to the `/projects/columns/cards/{card_id}/moves` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#move-a-project-card>
-     *
-     * **Parameters:**
-     *
-     * * `card_id: i64` -- card_id parameter.
-     */
+    * Move a project card.
+    *
+    * This function performs a `POST` to the `/projects/columns/cards/{card_id}/moves` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#move-a-project-card>
+    *
+    * **Parameters:**
+    *
+    * * `card_id: i64` -- card_id parameter.
+    */
     pub async fn move_card(
         &self,
         card_id: i64,
@@ -270,18 +270,18 @@ impl Projects {
             .await
     }
     /**
-     * Get a project column.
-     *
-     * This function performs a `GET` to the `/projects/columns/{column_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#get-a-project-column>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     */
+    * Get a project column.
+    *
+    * This function performs a `GET` to the `/projects/columns/{column_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#get-a-project-column>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    */
     pub async fn get_column(&self, column_id: i64) -> ClientResult<crate::types::ProjectColumn> {
         let url = self.client.url(
             &format!(
@@ -301,18 +301,18 @@ impl Projects {
             .await
     }
     /**
-     * Delete a project column.
-     *
-     * This function performs a `DELETE` to the `/projects/columns/{column_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project-column>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     */
+    * Delete a project column.
+    *
+    * This function performs a `DELETE` to the `/projects/columns/{column_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project-column>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    */
     pub async fn delete_column(&self, column_id: i64) -> ClientResult<()> {
         let url = self.client.url(
             &format!(
@@ -332,18 +332,18 @@ impl Projects {
             .await
     }
     /**
-     * Update an existing project column.
-     *
-     * This function performs a `PATCH` to the `/projects/columns/{column_id}` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#update-a-project-column>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     */
+    * Update an existing project column.
+    *
+    * This function performs a `PATCH` to the `/projects/columns/{column_id}` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#update-a-project-column>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    */
     pub async fn update_column(
         &self,
         column_id: i64,
@@ -367,21 +367,21 @@ impl Projects {
             .await
     }
     /**
-     * List project cards.
-     *
-     * This function performs a `GET` to the `/projects/columns/{column_id}/cards` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-cards>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     * * `archived_state: crate::types::ArchivedState` -- Filters the project cards that are returned by the card's state. Can be one of `all`,`archived`, or `not_archived`.
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List project cards.
+    *
+    * This function performs a `GET` to the `/projects/columns/{column_id}/cards` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-cards>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    * * `archived_state: crate::types::ArchivedState` -- Filters the project cards that are returned by the card's state. Can be one of `all`,`archived`, or `not_archived`.
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_cards(
         &self,
         column_id: i64,
@@ -419,16 +419,16 @@ impl Projects {
             .await
     }
     /**
-     * List project cards.
-     *
-     * This function performs a `GET` to the `/projects/columns/{column_id}/cards` endpoint.
-     *
-     * As opposed to `list_cards`, this function returns all the pages of the request at once.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-cards>
-     */
+    * List project cards.
+    *
+    * This function performs a `GET` to the `/projects/columns/{column_id}/cards` endpoint.
+    *
+    * As opposed to `list_cards`, this function returns all the pages of the request at once.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-cards>
+    */
     pub async fn list_all_cards(
         &self,
         column_id: i64,
@@ -458,18 +458,18 @@ impl Projects {
             .await
     }
     /**
-     * Create a project card.
-     *
-     * This function performs a `POST` to the `/projects/columns/{column_id}/cards` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#create-a-project-card>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     */
+    * Create a project card.
+    *
+    * This function performs a `POST` to the `/projects/columns/{column_id}/cards` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#create-a-project-card>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    */
     pub async fn create_card(
         &self,
         column_id: i64,
@@ -493,18 +493,18 @@ impl Projects {
             .await
     }
     /**
-     * Move a project column.
-     *
-     * This function performs a `POST` to the `/projects/columns/{column_id}/moves` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#move-a-project-column>
-     *
-     * **Parameters:**
-     *
-     * * `column_id: i64` -- column_id parameter.
-     */
+    * Move a project column.
+    *
+    * This function performs a `POST` to the `/projects/columns/{column_id}/moves` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#move-a-project-column>
+    *
+    * **Parameters:**
+    *
+    * * `column_id: i64` -- column_id parameter.
+    */
     pub async fn move_column(
         &self,
         column_id: i64,
@@ -528,18 +528,18 @@ impl Projects {
             .await
     }
     /**
-     * Get a project.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}` endpoint.
-     *
-     * Gets a project by its `id`. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#get-a-project>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     */
+    * Get a project.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}` endpoint.
+    *
+    * Gets a project by its `id`. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#get-a-project>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    */
     pub async fn get(&self, project_id: i64) -> ClientResult<crate::types::Project> {
         let url = self.client.url(
             &format!(
@@ -559,18 +559,18 @@ impl Projects {
             .await
     }
     /**
-     * Delete a project.
-     *
-     * This function performs a `DELETE` to the `/projects/{project_id}` endpoint.
-     *
-     * Deletes a project board. Returns a `404 Not Found` status if projects are disabled.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     */
+    * Delete a project.
+    *
+    * This function performs a `DELETE` to the `/projects/{project_id}` endpoint.
+    *
+    * Deletes a project board. Returns a `404 Not Found` status if projects are disabled.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#delete-a-project>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    */
     pub async fn delete(&self, project_id: i64) -> ClientResult<()> {
         let url = self.client.url(
             &format!(
@@ -590,18 +590,18 @@ impl Projects {
             .await
     }
     /**
-     * Update a project.
-     *
-     * This function performs a `PATCH` to the `/projects/{project_id}` endpoint.
-     *
-     * Updates a project board's information. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#update-a-project>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     */
+    * Update a project.
+    *
+    * This function performs a `PATCH` to the `/projects/{project_id}` endpoint.
+    *
+    * Updates a project board's information. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#update-a-project>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    */
     pub async fn update(
         &self,
         project_id: i64,
@@ -625,24 +625,24 @@ impl Projects {
             .await
     }
     /**
-     * List project collaborators.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}/collaborators` endpoint.
-     *
-     * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-collaborators>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     * * `affiliation: crate::types::Affiliation` -- Filters the collaborators by their affiliation. Can be one of:  
-     *  \\* `outside`: Outside collaborators of a project that are not a member of the project's organization.  
-     *  \\* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  
-     *  \\* `all`: All collaborators the authenticated user can see.
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List project collaborators.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}/collaborators` endpoint.
+    *
+    * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-collaborators>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    * * `affiliation: crate::types::Affiliation` -- Filters the collaborators by their affiliation. Can be one of:  
+    *  \\* `outside`: Outside collaborators of a project that are not a member of the project's organization.  
+    *  \\* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  
+    *  \\* `all`: All collaborators the authenticated user can see.
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_collaborators(
         &self,
         project_id: i64,
@@ -680,16 +680,16 @@ impl Projects {
             .await
     }
     /**
-     * List project collaborators.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}/collaborators` endpoint.
-     *
-     * As opposed to `list_collaborators`, this function returns all the pages of the request at once.
-     *
-     * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-collaborators>
-     */
+    * List project collaborators.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}/collaborators` endpoint.
+    *
+    * As opposed to `list_collaborators`, this function returns all the pages of the request at once.
+    *
+    * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-collaborators>
+    */
     pub async fn list_all_collaborators(
         &self,
         project_id: i64,
@@ -719,19 +719,19 @@ impl Projects {
             .await
     }
     /**
-     * Add project collaborator.
-     *
-     * This function performs a `PUT` to the `/projects/{project_id}/collaborators/{username}` endpoint.
-     *
-     * Adds a collaborator to an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#add-project-collaborator>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     * * `username: &str`
-     */
+    * Add project collaborator.
+    *
+    * This function performs a `PUT` to the `/projects/{project_id}/collaborators/{username}` endpoint.
+    *
+    * Adds a collaborator to an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#add-project-collaborator>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    * * `username: &str`
+    */
     pub async fn add_collaborator(
         &self,
         project_id: i64,
@@ -757,19 +757,19 @@ impl Projects {
             .await
     }
     /**
-     * Remove user as a collaborator.
-     *
-     * This function performs a `DELETE` to the `/projects/{project_id}/collaborators/{username}` endpoint.
-     *
-     * Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#remove-project-collaborator>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     * * `username: &str`
-     */
+    * Remove user as a collaborator.
+    *
+    * This function performs a `DELETE` to the `/projects/{project_id}/collaborators/{username}` endpoint.
+    *
+    * Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#remove-project-collaborator>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    * * `username: &str`
+    */
     pub async fn remove_collaborator(&self, project_id: i64, username: &str) -> ClientResult<()> {
         let url = self.client.url(
             &format!(
@@ -790,19 +790,19 @@ impl Projects {
             .await
     }
     /**
-     * Get project permission for a user.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}/collaborators/{username}/permission` endpoint.
-     *
-     * Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#get-project-permission-for-a-user>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     * * `username: &str`
-     */
+    * Get project permission for a user.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}/collaborators/{username}/permission` endpoint.
+    *
+    * Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#get-project-permission-for-a-user>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    * * `username: &str`
+    */
     pub async fn get_permission_for_user(
         &self,
         project_id: i64,
@@ -827,20 +827,20 @@ impl Projects {
             .await
     }
     /**
-     * List project columns.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}/columns` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-columns>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List project columns.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}/columns` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-columns>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_columns(
         &self,
         project_id: i64,
@@ -874,16 +874,16 @@ impl Projects {
             .await
     }
     /**
-     * List project columns.
-     *
-     * This function performs a `GET` to the `/projects/{project_id}/columns` endpoint.
-     *
-     * As opposed to `list_columns`, this function returns all the pages of the request at once.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-project-columns>
-     */
+    * List project columns.
+    *
+    * This function performs a `GET` to the `/projects/{project_id}/columns` endpoint.
+    *
+    * As opposed to `list_columns`, this function returns all the pages of the request at once.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-project-columns>
+    */
     pub async fn list_all_columns(
         &self,
         project_id: i64,
@@ -906,18 +906,18 @@ impl Projects {
             .await
     }
     /**
-     * Create a project column.
-     *
-     * This function performs a `POST` to the `/projects/{project_id}/columns` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#create-a-project-column>
-     *
-     * **Parameters:**
-     *
-     * * `project_id: i64`
-     */
+    * Create a project column.
+    *
+    * This function performs a `POST` to the `/projects/{project_id}/columns` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#create-a-project-column>
+    *
+    * **Parameters:**
+    *
+    * * `project_id: i64`
+    */
     pub async fn create_column(
         &self,
         project_id: i64,
@@ -941,22 +941,22 @@ impl Projects {
             .await
     }
     /**
-     * List repository projects.
-     *
-     * This function performs a `GET` to the `/repos/{owner}/{repo}/projects` endpoint.
-     *
-     * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-repository-projects>
-     *
-     * **Parameters:**
-     *
-     * * `owner: &str`
-     * * `repo: &str`
-     * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List repository projects.
+    *
+    * This function performs a `GET` to the `/repos/{owner}/{repo}/projects` endpoint.
+    *
+    * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-repository-projects>
+    *
+    * **Parameters:**
+    *
+    * * `owner: &str`
+    * * `repo: &str`
+    * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_for_repo(
         &self,
         owner: &str,
@@ -996,16 +996,16 @@ impl Projects {
             .await
     }
     /**
-     * List repository projects.
-     *
-     * This function performs a `GET` to the `/repos/{owner}/{repo}/projects` endpoint.
-     *
-     * As opposed to `list_for_repo`, this function returns all the pages of the request at once.
-     *
-     * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-repository-projects>
-     */
+    * List repository projects.
+    *
+    * This function performs a `GET` to the `/repos/{owner}/{repo}/projects` endpoint.
+    *
+    * As opposed to `list_for_repo`, this function returns all the pages of the request at once.
+    *
+    * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-repository-projects>
+    */
     pub async fn list_all_for_repo(
         &self,
         owner: &str,
@@ -1037,19 +1037,19 @@ impl Projects {
             .await
     }
     /**
-     * Create a repository project.
-     *
-     * This function performs a `POST` to the `/repos/{owner}/{repo}/projects` endpoint.
-     *
-     * Creates a repository project board. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#create-a-repository-project>
-     *
-     * **Parameters:**
-     *
-     * * `owner: &str`
-     * * `repo: &str`
-     */
+    * Create a repository project.
+    *
+    * This function performs a `POST` to the `/repos/{owner}/{repo}/projects` endpoint.
+    *
+    * Creates a repository project board. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#create-a-repository-project>
+    *
+    * **Parameters:**
+    *
+    * * `owner: &str`
+    * * `repo: &str`
+    */
     pub async fn create_for_repo(
         &self,
         owner: &str,
@@ -1075,14 +1075,14 @@ impl Projects {
             .await
     }
     /**
-     * Create a user project.
-     *
-     * This function performs a `POST` to the `/user/projects` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#create-a-user-project>
-     */
+    * Create a user project.
+    *
+    * This function performs a `POST` to the `/user/projects` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#create-a-user-project>
+    */
     pub async fn create_for_authenticated_user(
         &self,
         body: &crate::types::ProjectsCreateRequest,
@@ -1099,21 +1099,21 @@ impl Projects {
             .await
     }
     /**
-     * List user projects.
-     *
-     * This function performs a `GET` to the `/users/{username}/projects` endpoint.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-user-projects>
-     *
-     * **Parameters:**
-     *
-     * * `username: &str`
-     * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
-     * * `per_page: i64` -- Results per page (max 100).
-     * * `page: i64` -- Page number of the results to fetch.
-     */
+    * List user projects.
+    *
+    * This function performs a `GET` to the `/users/{username}/projects` endpoint.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-user-projects>
+    *
+    * **Parameters:**
+    *
+    * * `username: &str`
+    * * `state: crate::types::IssuesListState` -- Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.
+    * * `per_page: i64` -- Results per page (max 100).
+    * * `page: i64` -- Page number of the results to fetch.
+    */
     pub async fn list_for_user(
         &self,
         username: &str,
@@ -1151,16 +1151,16 @@ impl Projects {
             .await
     }
     /**
-     * List user projects.
-     *
-     * This function performs a `GET` to the `/users/{username}/projects` endpoint.
-     *
-     * As opposed to `list_for_user`, this function returns all the pages of the request at once.
-     *
-     *
-     *
-     * FROM: <https://docs.github.com/rest/reference/projects#list-user-projects>
-     */
+    * List user projects.
+    *
+    * This function performs a `GET` to the `/users/{username}/projects` endpoint.
+    *
+    * As opposed to `list_for_user`, this function returns all the pages of the request at once.
+    *
+    *
+    *
+    * FROM: <https://docs.github.com/rest/reference/projects#list-user-projects>
+    */
     pub async fn list_all_for_user(
         &self,
         username: &str,

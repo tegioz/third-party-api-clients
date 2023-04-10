@@ -2191,7 +2191,7 @@ impl Actions {
      * using an access token with the `repo` scope to use this endpoint.
      *
      * #### Example using registration token
-     *  
+     *
      * Configure your self-hosted runner, replacing `TOKEN` with the registration token provided by this endpoint.
      *
      * ```
@@ -2237,7 +2237,7 @@ impl Actions {
      * You must authenticate using an access token with the `repo` scope to use this endpoint.
      *
      * #### Example using remove token
-     *  
+     *
      * To remove your self-hosted runner from a repository, replace TOKEN with the remove token provided by this endpoint.
      *
      * ```
@@ -2744,8 +2744,8 @@ impl Actions {
      * * `owner: &str`
      * * `repo: &str`
      * * `run_id: i64` -- The id of the workflow run.
-     * * `filter: crate::types::ActionsListJobsWorkflowRunFilter` -- Filters jobs by their `completed_at` timestamp. Can be one of:  
-     *  \\* `latest`: Returns jobs from the most recent execution of the workflow run.  
+     * * `filter: crate::types::ActionsListJobsWorkflowRunFilter` -- Filters jobs by their `completed_at` timestamp. Can be one of:
+     *  \\* `latest`: Returns jobs from the most recent execution of the workflow run.
      *  \\* `all`: Returns all jobs for a workflow run, including from old executions of the workflow run.
      * * `per_page: i64` -- Results per page (max 100).
      * * `page: i64` -- Page number of the results to fetch.

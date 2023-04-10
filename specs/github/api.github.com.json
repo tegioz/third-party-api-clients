@@ -64454,7 +64454,13 @@
               "pull": {
                 "type": "boolean"
               },
+              "triage": {
+                "type": "boolean"
+              },
               "push": {
+                "type": "boolean"
+              },
+              "maintain": {
                 "type": "boolean"
               },
               "admin": {

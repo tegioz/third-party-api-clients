@@ -880,7 +880,10 @@ impl Apps {
      */
     pub async fn get_by_slug(&self, app_slug: &str) -> ClientResult<crate::types::GitHubApp> {
         let url = self.client.url(
-            &format!("/apps/{}", crate::progenitor_support::encode_path(app_slug),),
+            &format!(
+                "/apps/{}",
+                crate::progenitor_support::encode_path(app_slug),
+            ),
             None,
         );
         self.client
@@ -1052,7 +1055,9 @@ impl Apps {
      * FROM: <https://docs.github.com/rest/reference/apps#list-plans>
      */
     pub async fn list_all_plans(&self) -> ClientResult<Vec<crate::types::MarketplaceListingPlan>> {
-        let url = self.client.url("/marketplace_listing/plans", None);
+        let url = self
+            .client
+            .url("/marketplace_listing/plans", None);
         self.client
             .get_all_pages(
                 &url,
@@ -1079,7 +1084,7 @@ impl Apps {
      * * `plan_id: i64` -- plan_id parameter.
      * * `sort: crate::types::Sort` -- One of `created` (when the repository was starred) or `updated` (when it was last pushed to).
      * * `direction: crate::types::Order` -- The order of audit log events. To list newest events first, specify `desc`. To list oldest events first, specify `asc`.
-     *  
+     *
      *  The default is `desc`.
      * * `per_page: i64` -- Results per page (max 100).
      * * `page: i64` -- Page number of the results to fetch.
@@ -1264,7 +1269,9 @@ impl Apps {
     pub async fn list_all_plans_stubbed(
         &self,
     ) -> ClientResult<Vec<crate::types::MarketplaceListingPlan>> {
-        let url = self.client.url("/marketplace_listing/stubbed/plans", None);
+        let url = self
+            .client
+            .url("/marketplace_listing/stubbed/plans", None);
         self.client
             .get_all_pages(
                 &url,
@@ -1291,7 +1298,7 @@ impl Apps {
      * * `plan_id: i64` -- plan_id parameter.
      * * `sort: crate::types::Sort` -- One of `created` (when the repository was starred) or `updated` (when it was last pushed to).
      * * `direction: crate::types::Order` -- The order of audit log events. To list newest events first, specify `desc`. To list oldest events first, specify `asc`.
-     *  
+     *
      *  The default is `desc`.
      * * `per_page: i64` -- Results per page (max 100).
      * * `page: i64` -- Page number of the results to fetch.
@@ -1732,7 +1739,9 @@ impl Apps {
     pub async fn list_all_subscriptions_for_authenticated_user(
         &self,
     ) -> ClientResult<Vec<crate::types::UserMarketplacePurchase>> {
-        let url = self.client.url("/user/marketplace_purchases", None);
+        let url = self
+            .client
+            .url("/user/marketplace_purchases", None);
         self.client
             .get_all_pages(
                 &url,
@@ -1798,7 +1807,9 @@ impl Apps {
     pub async fn list_all_subscriptions_for_authenticated_user_stubbed(
         &self,
     ) -> ClientResult<Vec<crate::types::UserMarketplacePurchase>> {
-        let url = self.client.url("/user/marketplace_purchases/stubbed", None);
+        let url = self
+            .client
+            .url("/user/marketplace_purchases/stubbed", None);
         self.client
             .get_all_pages(
                 &url,
