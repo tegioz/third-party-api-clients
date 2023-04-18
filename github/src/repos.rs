@@ -2503,7 +2503,7 @@ impl Repos {
         repo: &str,
         username: &str,
         body: &crate::types::ReposAddCollaboratorRequest,
-    ) -> ClientResult<crate::types::RepositoryInvitation> {
+    ) -> ClientResult<Option<crate::types::RepositoryInvitation>> {
         let url = self.client.url(
             &format!(
                 "/repos/{}/{}/collaborators/{}",
